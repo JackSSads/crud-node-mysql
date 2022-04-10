@@ -1,0 +1,10 @@
+<h1>Livro disponíveis</h1>
+<a class="btn btn-primary" href="/" role="button">Adicionar Livro</a>
+<div class="books-container">
+    {{#each books}}
+    <div>
+        (ID: {{this.id}}) - <span class="bold"><a href="/books/{{this.id}}">{{this.title}}</a></span> 
+        - {{this.pageqty}} páginas.
+    </div>
+    {{/each}}
+</div>
