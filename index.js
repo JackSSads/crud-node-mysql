@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/books/insertbook', (req, res) => {
-
     const title = req.body.title;
     const pageqty = req.body.pageqty;
 
@@ -30,7 +29,6 @@ app.post('/books/insertbook', (req, res) => {
     const data = ['title', 'pageqty', title, pageqty]
 
     pool.query(query, data, (err) => {
-
         if (err) {
             throw err;
         };
@@ -40,7 +38,6 @@ app.post('/books/insertbook', (req, res) => {
 });
 
 app.get('/books', (req, res) => {
-
     const query = "SELECT * FROM books";
 
     pool.query(query, function (err, data) {
@@ -58,7 +55,6 @@ app.get('/books', (req, res) => {
 });
 
 app.get('/books/:id', (req, res) => {
-
     const id = req.params.id;
 
     const query = `SELECT * FROM books WHERE ?? = ?`;
@@ -76,14 +72,12 @@ app.get('/books/:id', (req, res) => {
 });
 
 app.get('/books/edit/:id', (req, res) => {
-
     const id = req.params.id;
 
     const query = `SELECT * FROM books WHERE ?? = ?`;
     const data = ['id', id]
 
     pool.query(query, data, (err, data) => {
-
         if (err) {
             throw err;
         };
@@ -95,7 +89,6 @@ app.get('/books/edit/:id', (req, res) => {
 });
 
 app.post('/books/updatebook', (req, res) => {
-
     const id = req.body.id;
     const title = req.body.title;
     const pageqty = req.body.pageqty;
@@ -113,7 +106,6 @@ app.post('/books/updatebook', (req, res) => {
 });
 
 app.post('/books/remove/:id', (req, res) => {
-
     const id = req.params.id;
     
     const query = `DELETE FROM books WHERE ?? = ?`;
